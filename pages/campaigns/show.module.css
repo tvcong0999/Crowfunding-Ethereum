@@ -1,0 +1,41 @@
+.card4 {
+    display: block!important;
+    top: 0px!important;
+    position: relative!important;
+    max-width: 262px!important;
+    background-color: rgb(243, 243, 243)!important;
+    border-radius: 4px!important;
+    padding: 32px 24px!important;
+    margin: 12px!important;
+    text-decoration: none!important;
+    overflow: hidden!important;
+    border: 1px solid #ccc!important;
+    background-image: linear-gradient(-45deg, #f1e3de 1%, #d45454 100%)!important;
+}
+
+.card4 .go-corner {
+    background-color: #00838d!important;
+    height: 100%!important;
+    width: 16px!important;
+    padding-right: 9px!important;
+    border-radius: 0!important;
+    transform: skew(6deg)!important;
+    margin-right: -36px!important;
+    align-items: start!important;
+    background-image: linear-gradient(-45deg, #8f479a 1%, #dc2a74 100%)!important;
+}
+
+.card4 .go-arrow {
+    transform: skew(-6deg)!important;
+    margin-left: -2px!important;
+    margin-top: 9px!important;
+    opacity: 0!important;
+}
+
+.card4:hover {
+    border: 1px solid #e950ee!important;
+}
+
+.card4 header {
+    margin-top: 8px!important;
+}

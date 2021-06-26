@@ -5,6 +5,13 @@ import { Card, Grid, Button } from 'semantic-ui-react'
 import web3 from '../../Ethereum/web3';
 import ContributeForm from '../../components/ContributeForm';
 import { Link } from '../../routes';
+import styles from '../campaigns/show.module.css';
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+  integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+  crossorigin="anonymous"
+/>
 
 export default class CampaignShow extends Component {
     static async getInitialProps(props) {
@@ -35,34 +42,39 @@ export default class CampaignShow extends Component {
 
         const items = [
             {
+                className: styles.card4,
                 header: manager,
                 description: 'The Manager created this Campaign and can create requests to withdraw money.',
                 meta: 'Address of Manager',
                 style: { overflowWrap: 'break-word' }
             },
             {
+                className: styles.card4,
                 header: minimumContribution,
                 description: 'You must contribute atleast this much wei to become a approver.',
                 meta: 'Minimum Contribution (wei)',
             },
             {
+                className: styles.card4,
                 header: noOfReq,
                 description: 'A request tries to withdraw money from the contract. A request must be approved by approvers.',
                 meta: 'Number of Requests',
             },
             {
+                className: styles.card4,
                 header: noOfContributor,
                 description: 'No of people who have already donated to the campaign.',
                 meta: 'No of Approvers',
             },
             {
+                className: styles.card4,
                 header: web3.utils.fromWei(campaignBalance, 'ether'),
                 description: 'The amount of money campaign has left to spend.',
                 meta: 'Campaign Balance (ether)',
             }
         ];
 
-        return <Card.Group items={items} />;
+        return <Card.Group items={items}/>;
     }
 
     render() {
@@ -71,6 +83,7 @@ export default class CampaignShow extends Component {
                 <h3>Campaign Show</h3>
                 <Grid>
                     <Grid.Row>
+                    {/* {this.renderCard()} */}
 
                         <Grid.Column width={10}>
                             {this.renderCard()}
@@ -79,11 +92,16 @@ export default class CampaignShow extends Component {
 
                         <Grid.Column width={6}>
                             <ContributeForm address={this.props.address} />
+                            <Link route={`/campaigns/${this.props.address}/requests`}>
+                                <a>
+                                    <Button primary>View Requests</Button>
+                                </a>
+                            </Link>
                         </Grid.Column>
 
                     </Grid.Row>
 
-                    <Grid.Row>
+                    {/* <Grid.Row>
 
                         <Grid.Column>
                             <Link route={`/campaigns/${this.props.address}/requests`}>
@@ -93,7 +111,7 @@ export default class CampaignShow extends Component {
                             </Link>
                         </Grid.Column>
 
-                    </Grid.Row>
+                    </Grid.Row> */}
                 </Grid>
             </Layout>
         );
