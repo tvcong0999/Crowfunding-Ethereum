@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Table, Button, Message, Icon, Popup } from 'semantic-ui-react';
 import web3 from '../Ethereum/web3';
 import Campaign from '../Ethereum/campaign';
+import style from './RequestRow.module.css'
 
 export default class RequestRow extends Component {
 
@@ -64,17 +65,16 @@ export default class RequestRow extends Component {
 
     render() {
         const { Row, Cell } = Table;
-        const { id, request, approversCount } = this.props;
+        const { id, request, approversCount, key } = this.props;
         const readyToFinalize = request.approvalCount > approversCount / 2;
-
         return (
-            <Row disabled={request.complete} positive={readyToFinalize && !request.complete} >
-                <Cell>{id}</Cell>
-                <Cell>{request.description}</Cell>
-                <Cell>{web3.utils.fromWei(request.value, 'ether')} (ether)</Cell>
-                <Cell>{request.recipient}</Cell>
-                <Cell>{request.approvalCount}/{approversCount}</Cell>
-                <Cell error={!!this.state.errorMessageApprove}>
+            <Row className={id / 2 === 0 ? style.row1 : style.row0} disabled={request.complete}  >
+                <Cell className={style.cell}>{id}</Cell>
+                <Cell className={style.cell}>{request.description}</Cell>
+                <Cell className={style.cell}>{web3.utils.fromWei(request.value, 'ether')} (ether)</Cell>
+                <Cell className={style.cell}>{request.recipient}</Cell>
+                <Cell  className={style.cell}><b style= {{color : "peachpuff"}}>{request.approvalCount}</b>/{approversCount}</Cell>
+                <Cell error={!!this.state.errorMessageApprove} className={style.cellend}>
                     <Popup
                         header="Error"
                         content={this.state.errorMessageApprove}
@@ -83,7 +83,7 @@ export default class RequestRow extends Component {
                         hoverable />
                     {request.complete ? null : (<Button color='green' loading={this.state.loadingApprove} basic onClick={this.onApprove}>Approve</Button>)}
                 </Cell>
-                <Cell error={!!this.state.errorMessageFinalize}>
+                <Cell className={style.cellend} error={!!this.state.errorMessageFinalize}>
                     <Popup
                         header="Error"
                         content={this.state.errorMessageFinalize}

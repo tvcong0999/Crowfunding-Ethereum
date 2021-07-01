@@ -1,0 +1,55 @@
+.cell {
+    color: #dfdfdf !important;
+    border-right: 1px solid #1F2739;
+    border-bottom: 1px solid #1F2739;
+    font-weight: normal;
+    -webkit-box-shadow: 0 2px 2px -2px #0e1119;
+    -moz-box-shadow: 0 2px 2px -2px #0E1119;
+    box-shadow: 0 2px 2px -2px #0e1119;
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+.cell:hover {
+    background-color: #FFF842;
+    color: #403E10 !important;
+    font-weight: bold;
+    box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
+    transform: translate3d(6px, -6px, 0);
+    transition-delay: 0s !important;
+    transition-duration: 0.4s !important;
+    transition-property: all !important;
+    transition-timing-function: line !important;
+    border-right: unset;
+    border-bottom: unset;
+}
+
+.row1 {
+    background-color: #323C50;
+}
+
+.row1:hover{
+    background-color: #464A52 !important;
+}
+
+.row0 {
+    background-color: #2C3446;
+}
+
+.row0:hover{
+    background-color: #464A52 !important;
+}
+
+.bgclor {
+    background-color: #1F2739;
+    height: 100vh;
+}
+
+.cellend {
+    border-right: 1px solid #1F2739;
+    border-bottom: 1px solid #1F2739;
+    text-align: center;
+}
+
+.important {
+    color: peachpuff !important
+}

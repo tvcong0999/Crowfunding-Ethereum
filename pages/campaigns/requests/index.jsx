@@ -5,7 +5,8 @@ import { Link } from '../../../routes';
 import Campaings from '../../../Ethereum/campaign';
 import RequestRow from '../../../components/RequestRow';
 import web3 from '../../../Ethereum/web3';
-
+import styles from '../requests/request.module.css'
+// import "../requests/temp.scss"
 export default class RequestIndex extends Component {
 
     static async getInitialProps(props) {
@@ -43,54 +44,57 @@ export default class RequestIndex extends Component {
         const campaignsBalance = this.props.contractBalance;
 
         return (
-            <Layout>
-                <h3>Request</h3>
-                <Grid columns='equal'>
-                    <Grid.Row>
-                        <Grid.Column>
-                            <Link route={`/campaigns/${this.props.address}/`}>
-                                <a>
-                                    <Button icon><Icon name='home' /></Button>
-                                </a>
-                            </Link>
-                        </Grid.Column>
-                        <Grid.Column textAlign='center'>
-                            <Label>
-                                <Icon name='ethereum' /> {web3.utils.fromWei(campaignsBalance, 'ether')} ether
-                            </Label>
-                        </Grid.Column>
-                        <Grid.Column textAlign='right'>
-                            <Link route={`/campaigns/${this.props.address}/requests/new`}>
-                                <a>
-                                    <Button primary>Add Request</Button>
-                                </a>
-                            </Link>
-                        </Grid.Column>
-                    </Grid.Row>
-                </Grid>
+            <div style={{height: "100vh", backgroundColor: "#1F2739"}}>
+                <Layout>
+                    <h3 style = {{color: "gold"}}>Request</h3>
+                    <Grid columns='equal'>
+                        <Grid.Row>
+                            <Grid.Column>
+                                <Link route={`/campaigns/${this.props.address}/`}>
+                                    <a>
+                                        <Button icon><Icon name='home' /></Button>
+                                    </a>
+                                </Link>
+                            </Grid.Column>
+                            <Grid.Column textAlign='center'>
+                                <Label>
+                                    <Icon name='ethereum' /> {web3.utils.fromWei(campaignsBalance, 'ether')} ether
+                                </Label>
+                            </Grid.Column>
+                            <Grid.Column textAlign='right'>
+                                <Link route={`/campaigns/${this.props.address}/requests/new`}>
+                                    <a>
+                                        <Button primary>Add Request</Button>
+                                    </a>
+                                </Link>
+                            </Grid.Column>
+                        </Grid.Row>
+                    </Grid>
 
 
-                <Table>
-                    <Header>
-                        <Row>
-                            <HeaderCell>ID</HeaderCell>
-                            <HeaderCell>Description</HeaderCell>
-                            <HeaderCell>Amount</HeaderCell>
-                            <HeaderCell>Recipient</HeaderCell>
-                            <HeaderCell>Approval</HeaderCell>
-                            <HeaderCell>Approve</HeaderCell>
-                            <HeaderCell>Finalize</HeaderCell>
-                        </Row>
-                    </Header>
+                    <Table className={styles.mytable}>
+                        <Header>
+                            <Row >
+                                <HeaderCell className={styles.tableheader}>ID</HeaderCell>
+                                <HeaderCell className={styles.tableheader}>Description</HeaderCell>
+                                <HeaderCell className={styles.tableheader}>Amount</HeaderCell>
+                                <HeaderCell className={styles.tableheader}>Recipient</HeaderCell>
+                                <HeaderCell className={styles.tableheader}>Approval</HeaderCell>
+                                <HeaderCell className={styles.tableheader}>Approve</HeaderCell>
+                                <HeaderCell className={styles.tableheader}>Finalize</HeaderCell>
+                            </Row>
+                        </Header>
 
-                    <Body>
-                        {this.renderRows()}
-                    </Body>
-                </Table>
+                        <Body >
+                            {this.renderRows()}
+                        </Body>
+                    </Table>
 
-                <div>Found {this.props.requestCount} requests.</div>
+                    <div style= {{color:"antiquewhite"}}>Found {this.props.requestCount} requests.</div>
 
-            </Layout>
+                </Layout>
+
+            </div>
         )
     }
 }

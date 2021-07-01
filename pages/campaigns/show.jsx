@@ -79,10 +79,13 @@ export default class CampaignShow extends Component {
 
     render() {
         return (
-            <Layout>
+            <Layout >
                 <h3>Campaign Show</h3>
                 <Grid>
-                    <Grid.Row>
+                    <Grid.Row style={{
+                        height: "calc(100vh - 100px)",
+                        overflow: "auto"
+                    }}>
                     {/* {this.renderCard()} */}
 
                         <Grid.Column width={10}>
