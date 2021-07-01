@@ -15,7 +15,7 @@ const provider = new HDWalletProvider(
         mnemonic: {
           phrase: 'select all involve trend auto boost major squeeze round yellow furnace pipe'
         },
-        providerOrUrl: 'https://rinkeby.infura.io/v3/c7428c4bd0d54f97b5b9b6c86b2b5a47'
+        providerOrUrl: 'https://rinkeby.infura.io/v3/48e443543ec0470fb19d967a0894b144'
     }   
 );
 // const provider = new HDWalletProvider(
