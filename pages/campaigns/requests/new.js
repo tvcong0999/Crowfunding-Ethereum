@@ -4,6 +4,7 @@ import Campaigns from '../../../Ethereum/campaign';
 import web3 from '../../../Ethereum/web3';
 import { Link, Router } from '../../../routes';
 import Layout from '../../../components/Layout';
+import styles from '../requests/new.request.module.css';
 
 export default class RequestNew extends Component {
 
@@ -18,6 +19,16 @@ export default class RequestNew extends Component {
     static async getInitialProps(props) {
         const { address } = props.query;
         return { address };
+    }
+
+    reset = () => {
+        this.setState({
+            value: '',
+            description: '',
+            recipient: '',
+            errorMessage: '',
+            loading: false
+        });
     }
 
     onSubmit = async event => {
@@ -60,10 +71,10 @@ export default class RequestNew extends Component {
                     <a>Back</a>
                 </Link>
 
-                <h3>Create a Request</h3>
+                <h2 className={styles.textcenter}>Create a new request</h2>
                 <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
                     <Form.Field>
-                        <label>Description</label>
+                    <label className={styles.label}>Description</label>
                         <Input
                             value={this.state.description}
                             onChange={event =>
@@ -73,7 +84,7 @@ export default class RequestNew extends Component {
                     </Form.Field>
 
                     <Form.Field>
-                        <label>Value in Ether</label>
+                    <label className={styles.label}>Value in Ether</label>
                         <Input
                             value={this.state.value}
                             onChange={event =>
@@ -83,7 +94,7 @@ export default class RequestNew extends Component {
                     </Form.Field>
 
                     <Form.Field>
-                        <label>Recipient</label>
+                    <label className={styles.label} >Recipient</label>
                         <Input
                             value={this.state.recipient}
                             onChange={event =>
@@ -93,7 +104,8 @@ export default class RequestNew extends Component {
                     </Form.Field>
 
                     <Message error header="Oops!" content={this.state.errorMessage} />
-                    <Button primary loading={this.state.loading}>Create!</Button>
+                    <Button type='button' onClick={this.reset}>Cancel</Button>
+                    <Button type='submit' primary loading={this.state.loading}>Create</Button>
                 </Form>
             </Layout>
         );
