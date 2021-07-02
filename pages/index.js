@@ -13,6 +13,7 @@ class CampaignIndex extends Component {
     }
 
     renderCampaigns() {
+        //Compain
         const items = this.props.campaigns.map(address => {
             return {
                 header: address,
