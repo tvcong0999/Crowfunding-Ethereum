@@ -57,7 +57,13 @@ export default class CampaignShow extends Component {
             {
                 className: styles.card4,
                 header: noOfReq,
-                description: 'A request tries to withdraw money from the contract. A request must be approved by approvers.',
+                description: (
+                <Link route={`/campaigns/${this.props.address}/requests`}>  
+                <p>
+                A request tries to withdraw money from the contract. A request must be approved by approvers. <Button primary style={{width:"100%", marginTop:"10px"}}>View Requests</Button>
+                </p>
+            </Link>),
+                // description: 'A request tries to withdraw money from the contract. A request must be approved by approvers.',
                 meta: 'Number of Requests',
             },
             {
@@ -80,11 +86,18 @@ export default class CampaignShow extends Component {
     render() {
         return (
             <Layout>
-                <h3 style={{color: 'white', paddingTop: '15px'}}>Campaign Detail</h3>                        <Link route={`/campaigns/${this.props.address}/requests`}>
+                <h3 style={{color: 'white'}}>Campaign Detail</h3>
+                            {/* <Link route={`/campaigns/${this.props.address}/requests`}>  
                                 <a>
                                     <Button primary>View Requests</Button>
                                 </a>
-                            </Link>
+                            </Link> */}
+                            {/* <Link route={`/campaigns/${this.props.address}/requests`}>  
+                                <a>
+                                    <Button primary>Contribute to our campaign</Button>
+                                </a>
+                            </Link> */}
+                            <ContributeForm address={this.props.address} />
                 <Grid>
                     <Grid.Row>
                     <Card className={styles.card4add} description="The Manager created this Campaign and can create requests to withdraw money."
@@ -106,28 +119,9 @@ export default class CampaignShow extends Component {
                     </Grid.Row>
                     <Grid.Row>
                     {this.renderCard()}
-
+                    
                     </Grid.Row>
 
-                    <Grid.Row>
-                        <h3 style={{color:'white'}}>Contibute</h3>
-                        <Grid.Row>
-                        <ContributeForm address={this.props.address} />
-                        </Grid.Row>
-                        
-                    </Grid.Row>
-
-                    {/* <Grid.Row>
-
-                        <Grid.Column>
-                            <Link route={`/campaigns/${this.props.address}/requests`}>
-                                <a>
-                                    <Button primary>View Requests</Button>
-                                </a>
-                            </Link>
-                        </Grid.Column>
-
-                    </Grid.Row> */}
                 </Grid>
             </Layout>
         );

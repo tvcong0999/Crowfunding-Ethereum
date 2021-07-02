@@ -3,7 +3,7 @@ import factory from '../Ethereum/factory';
 import { Card, Button } from 'semantic-ui-react';
 import Layout from '../components/Layout';
 import { Link } from '../routes';
-import Styles from '../pages/index.module.css'
+
 class CampaignIndex extends Component {
 
     static async getInitialProps() {

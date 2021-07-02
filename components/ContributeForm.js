@@ -46,7 +46,7 @@ export default class ContributeForm extends Component {
         return (
             <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
                 <Form.Field>
-                    <label style={{color:'white'}}>Amount to Contribute</label>
+                    <label style={{color:'white', display:'inline-block'}}>Amount to Contribute</label>
                     <Input
                         value={this.state.value}
                         label="ether"
@@ -58,9 +58,10 @@ export default class ContributeForm extends Component {
                 </Form.Field>
 
                 <Message error header="Oops!" content={this.state.errorMessage} />
-                <Button primary loading={this.state.loading}>
-                    Contribute!
+                <Button primary loading={this.state.loading} style={{marginTop: "5px",marginBottom: "7px"}}>
+                    Contribute to our campaign
                 </Button>
+
             </Form>
         );
     }
