@@ -41,13 +41,13 @@ export default class CampaignShow extends Component {
         } = this.props;
 
         const items = [
-            {
-                className: styles.card4,
-                header: manager,
-                description: 'The Manager created this Campaign and can create requests to withdraw money.',
-                meta: 'Address of Manager',
-                style: { overflowWrap: 'break-word' }
-            },
+            // {
+            //     className: styles.card4,
+            //     header: manager,
+            //     description: 'The Manager created this Campaign and can create requests to withdraw money.',
+            //     meta: 'Address of Manager',
+            //     style: { overflowWrap: 'break-word' }
+            // },
             {
                 className: styles.card4,
                 header: minimumContribution,
@@ -79,29 +79,42 @@ export default class CampaignShow extends Component {
 
     render() {
         return (
-            <Layout >
-                <h3>Campaign Show</h3>
-                <Grid>
-                    <Grid.Row style={{
-                        height: "calc(100vh - 100px)",
-                        overflow: "auto"
-                    }}>
-                    {/* {this.renderCard()} */}
-
-                        <Grid.Column width={10}>
-                            {this.renderCard()}
-
-                        </Grid.Column>
-
-                        <Grid.Column width={6}>
-                            <ContributeForm address={this.props.address} />
-                            <Link route={`/campaigns/${this.props.address}/requests`}>
+            <Layout>
+                <h3 style={{color: 'white', paddingTop: '15px'}}>Campaign Detail</h3>                        <Link route={`/campaigns/${this.props.address}/requests`}>
                                 <a>
                                     <Button primary>View Requests</Button>
                                 </a>
                             </Link>
-                        </Grid.Column>
+                <Grid>
+                    <Grid.Row>
+                    <Card className={styles.card4add} description="The Manager created this Campaign and can create requests to withdraw money."
+                        header={this.props.address} style={{ overflowWrap: 'break-word' }}
+                        meta="Address of Manager"
+                        >
+                        </Card>
+                    {/* <Grid.Column width={3}>
+                    <ContributeForm address={this.props.address} />
+                    </Grid.Column>
+                    <Grid.Column width={3}>
+                    <Link route={`/campaigns/${this.props.address}/requests`}>
+                                <a>
+                                    <Button primary>View Requests</Button>
+                                </a>
+                            </Link>
+                    </Grid.Column> */}
+                        
+                    </Grid.Row>
+                    <Grid.Row>
+                    {this.renderCard()}
 
+                    </Grid.Row>
+
+                    <Grid.Row>
+                        <h3 style={{color:'white'}}>Contibute</h3>
+                        <Grid.Row>
+                        <ContributeForm address={this.props.address} />
+                        </Grid.Row>
+                        
                     </Grid.Row>
 
                     {/* <Grid.Row>
