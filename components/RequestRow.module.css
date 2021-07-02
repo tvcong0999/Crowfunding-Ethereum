@@ -53,3 +53,40 @@
 .important {
     color: peachpuff !important
 }
+
+.containerHeader{
+    background-color: #181A20;
+    padding: 15px 20px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+
+.content{
+    display: flex;
+    flex-direction: row;
+
+}
+.btn{
+    padding: 6px 15px;
+    height: 32px;
+    cursor: pointer;
+    color: black !important;
+    background-color: #FCD535;
+    border-radius: 5px;
+    
+}
+
+.btn:hover{
+    background-color:#FAD943 !important
+}
+
+
+.logo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+}
