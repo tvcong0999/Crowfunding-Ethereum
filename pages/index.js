@@ -13,6 +13,7 @@ class CampaignIndex extends Component {
     }
 
     renderCampaigns() {
+        //Compain
         const items = this.props.campaigns.map(address => {
             return {
                 header: address,
@@ -25,7 +26,7 @@ class CampaignIndex extends Component {
                                 primary
                                 floated="center"     
                                 style={{ backgroundColor: '#FCD535', color:"black"}}   
-                                className= "ui fluid button"                       
+                                className= "ui fluid button Add"                       
                             />
                         </a>
                     </Link>
